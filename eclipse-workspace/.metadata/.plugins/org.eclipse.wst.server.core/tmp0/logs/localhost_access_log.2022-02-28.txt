@@ -1,0 +1,8 @@
+127.0.0.1 - - [28/Feb/2022:09:44:26 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Feb/2022:09:44:27 +0530] "GET /FebDemoNew/index.html HTTP/1.1" 304 -
+127.0.0.1 - - [28/Feb/2022:09:44:27 +0530] "GET /FebDemoNew/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [28/Feb/2022:09:44:27 +0530] "GET /FebDemoNew/globalvoximg-removebg.png HTTP/1.1" 304 -
+127.0.0.1 - - [28/Feb/2022:09:44:56 +0530] "GET /FebDemoNew/ClientApp?name=Mohit&key=1&id=9558992770&age=21&gender=male&vaccinename=Covaxin&dose=1&date-of-vaccination=2000-08-30 HTTP/1.1" 500 2528
+127.0.0.1 - - [28/Feb/2022:09:46:51 +0530] "GET /FebDemoNew/ClientApp?name=Mohit&key=1&id=9558992770&age=21&gender=male&vaccinename=Covaxin&dose=1&date-of-vaccination=2000-08-30 HTTP/1.1" 500 1292
+127.0.0.1 - - [28/Feb/2022:09:50:53 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [28/Feb/2022:09:51:24 +0530] "GET /FebDemoNew/ClientApp?name=Soham&key=2&id=6353225587&age=21&gender=male&vaccinename=Covaxin&dose=1&date-of-vaccination=2001-02-23 HTTP/1.1" 500 1292

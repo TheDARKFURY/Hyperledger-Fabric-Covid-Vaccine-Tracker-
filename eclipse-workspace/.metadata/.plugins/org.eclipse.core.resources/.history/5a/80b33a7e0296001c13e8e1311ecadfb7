@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" >
+<title>Update Dose</title>
+</head>
+
+<body>
+
+<div>
+	<img src="globalvoximg-removebg.png" class="img">
+</div>
+
+<form action="ClientAppUpdate">
+
+		
+		<input name="key" type="text" class="feedback-input" placeholder="Key" required="required"/>
+		
+		<select class="feedback-input" name="dose" required="required">
+
+    <option disabled selected>Select your dose</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  	</select>
+
+
+
+
+</form>
+
+
+</body>
+</html>

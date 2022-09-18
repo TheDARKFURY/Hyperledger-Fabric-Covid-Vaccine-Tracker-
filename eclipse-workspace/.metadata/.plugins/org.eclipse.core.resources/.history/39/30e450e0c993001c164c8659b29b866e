@@ -1,0 +1,65 @@
+package fabricjavaclient;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.Security;
+
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.hyperledger.fabric.gateway.Contract;
+import org.hyperledger.fabric.gateway.Gateway;
+import org.hyperledger.fabric.gateway.Network;
+import org.hyperledger.fabric.gateway.Wallet;
+import org.hyperledger.fabric.gateway.Wallets;
+
+
+
+public class ClientApp 
+{
+
+	static 
+	{
+		System.setProperty("org.hyperledger.fabric.sdk.service_discovery.as_localhost", "true");
+	}
+	
+	
+	
+	public static void main(String[] args) throws Exception 
+	{
+	
+		Security.addProvider(new BouncyCastleProvider());
+		
+		// Load a file system based wallet for managing identities.
+		Path walletPath = Paths.get("wallet");
+		Wallet wallet = Wallets.newFileSystemWallet(walletPath);
+		// load a CCP
+		Path networkConfigPath = Paths.get("/home","mohit","eclipse-workspace", "fabric-samples", "test-network", "organizations", "peerOrganizations", "org1.example.com", "connection-org1.yaml");
+//		Path networkConfigPath = Paths.get("/home/mohit/eclipse-workspace/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/connection-org1.yaml");
+		
+//		Gateway.Builder builder = Gateway.createBuilder();
+//		builder.identity(wallet, "appUser").networkConfig(networkConfigPath).discovery(true);
+		
+		Gateway.Builder builder =Gateway.createBuilder();
+		builder.identity(wallet,"appUser").networkConfig(networkConfigPath).discovery(true);
+		
+ 
+		// create a gateway connection
+		try (Gateway gateway = builder.connect()) {
+ 
+			// get the network and contract
+			Network network = gateway.getNetwork("samplechannel");
+			Contract contract = network.getContract("CovidVT");
+ 
+			byte[] result;
+			contract.submitTransaction("addPerson", "3", "Alex","21","male","1226678900","Covaxin","03-08-2000","1");
+			result = contract.evaluateTransaction("queryPerson", "1");
+			System.out.println(new String(result));
+ 
+			contract.submitTransaction("changePersonDose", "1", "2");
+			result = contract.evaluateTransaction("queryPerson", "1");
+			System.out.println(new String(result));
+		}
+	}
+	
+	
+	
+}

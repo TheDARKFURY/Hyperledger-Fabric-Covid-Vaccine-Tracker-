@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;globalvoximg.jpg, globalvoximg-removebg-preview.png, index.html, style.css&apos; to &apos;webapp&apos;" description="Move 4 resources to &apos;webapp&apos;" destination="src/main/webapp" element1="src/main/webapp/WEB-INF/globalvoximg.jpg" element2="src/main/webapp/WEB-INF/globalvoximg-removebg-preview.png" element3="src/main/webapp/WEB-INF/index.html" element4="src/main/webapp/WEB-INF/style.css" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="4" stamp="1645514850642" updateReferences="true"/>
+</session>

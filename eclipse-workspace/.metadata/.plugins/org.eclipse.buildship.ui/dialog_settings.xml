@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item key="use_default_location" value="false"/>
+		<item key="project_location" value="/home/mohit/eclipse-workspace/fabric-samples/chaincode/CovidVT"/>
+		<item key="custom_location" value="/home/mohit/eclipse-workspace/fabric-samples/chaincode"/>
+		<item key="gradle_distribution" value="GRADLE_DISTRIBUTION(VERSION(7.4))"/>
+		<item key="apply_working_sets" value="false"/>
+		<list key="working_sets">
+		</list>
+	</section>
+</section>

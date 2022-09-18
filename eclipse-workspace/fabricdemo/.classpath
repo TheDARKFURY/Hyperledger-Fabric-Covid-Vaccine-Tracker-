@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/home/mohit/.gradle/caches/modules-2/files-2.1/org.hyperledger.fabric-chaincode-java/fabric-chaincode-shim/2.2.3/c6b1b1d57965c6615a33a9d9a3cb1745f5491591/fabric-chaincode-shim-2.2.3.jar" sourcepath="/home/mohit/.gradle/caches/modules-2/files-2.1/org.hyperledger.fabric-chaincode-java/fabric-chaincode-shim/2.2.3/fe92e39d0285e9808e64268f12ae9572503ea2e8/fabric-chaincode-shim-2.2.3-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/mohit/.gradle/caches/modules-2/files-2.1/com.owlike/genson/1.5/96bc3e335ccae044ed941e9cf6a0a289181c2675/genson-1.5.jar" sourcepath="/home/mohit/.gradle/caches/modules-2/files-2.1/com.owlike/genson/1.5/6876abb3f2e6bbacc3b78d1bc223aa0b907cafdd/genson-1.5-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/mohit/.m2/repository/org/hyperledger/fabric/fabric-gateway-java/2.1.1/fabric-gateway-java-2.1.1.jar" sourcepath="/home/mohit/.m2/repository/org/hyperledger/fabric/fabric-gateway-java/2.1.1/fabric-gateway-java-2.1.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.hyperledger.fabric"/>
+			<attribute name="maven.artifactId" value="fabric-gateway-java"/>
+			<attribute name="maven.version" value="2.1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/mohit/.m2/repository/org/hyperledger/fabric-sdk-java/fabric-sdk-java/2.1.1/fabric-sdk-java-2.1.1.jar" sourcepath="/home/mohit/.m2/repository/org/hyperledger/fabric-sdk-java/fabric-sdk-java/2.1.1/fabric-sdk-java-2.1.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.hyperledger.fabric-sdk-java"/>
+			<attribute name="maven.artifactId" value="fabric-sdk-java"/>
+			<attribute name="maven.version" value="2.1.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/mohit/Desktop/apache-tomcat-9.0.55/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/mohit/Desktop/apache-tomcat-9.0.55/bin/bootstrap.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/mohit/Desktop/apache-tomcat-9.0.55/bin/commons-daemon.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/mohit/Desktop/apache-tomcat-9.0.55/bin/tomcat-juli.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

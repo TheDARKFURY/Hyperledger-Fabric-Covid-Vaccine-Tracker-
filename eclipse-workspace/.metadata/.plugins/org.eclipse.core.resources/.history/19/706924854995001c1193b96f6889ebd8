@@ -1,0 +1,63 @@
+
+
+<style>
+
+@import url("/resources/css/style.css");
+
+</style>
+
+<div>
+	<img src="/resources/images/globalvoximg.png""  class="img">
+</div>
+
+<form acrion="ClientApp">      
+  <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+  
+  <input name="unique-id" type="text" class="feedback-input" placeholder="Unique Id" />
+  
+  <input name="age" type="number" class="feedback-input" placeholder="Age" min="0">
+  
+  <div class="gender">
+  <div>
+  <input type="radio" name="gender" value="male"> Male</div>
+  <div>
+<input type="radio" name="gender" value="female" class="female"> Female</div>
+</div>
+
+
+  <select class="feedback-input">
+
+    <option disabled selected>Select your vaccine</option>
+    <option>Pfizer</option>
+    <option>Moderna</option>
+    <option>Covaxin</option>
+    <option>Covishield</option>
+    <option>Sputnik</option>
+    <option>Zycov</option>
+  </select>
+  
+
+  <select class="feedback-input">
+
+    <option disabled selected>Select your dose</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  </select>
+
+
+
+
+  
+  <input name="vaccine-ref-id" type="number" class="feedback-input" placeholder="Vaccine Ref Id" min="0">
+  
+  
+  
+  <input name="date-of-vaccination" type="date" class="feedback-input" placeholder="Date of Vaccination">
+  
+
+  <input type="submit" value="SUBMIT"/>
+</form>

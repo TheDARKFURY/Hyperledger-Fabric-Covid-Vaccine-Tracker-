@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" >
+<meta charset="UTF-8">
+<title>Display</title>
+</head>
+<body>
+
+<div>
+	<img src="globalvoximg-removebg.png" class="img">
+</div>
+
+<form action="ClientAppDisplay">
+
+	<input name="key" type="text" class="feedback-input" id="keyInput" placeholder="Key" required="required"/>
+	
+	<input type="button" onClick="fetchData(document.getElementById('keyInput').value)" value="DISPLAY"/>
+
+</form>
+<div id="result">
+</div>
+
+<script type="text/javascript">
+fetchData = (key)=>{
+	fetch('http://localhost:8888/FebDemoNew/ClientAppDisplay?key=' + key)
+	.then(data => data.json())
+	.then(data => {
+		console.log(data);
+		document.getElementById('result').text = data;
+	});
+};
+//fetchData(5001);
+</script>
+
+
+</body>
+</html>

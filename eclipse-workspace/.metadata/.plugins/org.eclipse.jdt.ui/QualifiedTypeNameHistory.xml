@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.security.KeyFactory"/>
+    <fullyQualifiedTypeName name="org.bouncycastle.asn1.x509.AlgorithmIdentifier"/>
+    <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
+    <fullyQualifiedTypeName name="java.security.NoSuchProviderException"/>
+    <fullyQualifiedTypeName name="org.bouncycastle.asn1.ASN1ObjectIdentifier"/>
+    <fullyQualifiedTypeName name="java.security.Security"/>
+    <fullyQualifiedTypeName name="org.bouncycastle.jce.provider.BouncyCastleProvider"/>
+    <fullyQualifiedTypeName name="org.hyperledger.fabric.gateway.Gateway.Builder"/>
+    <fullyQualifiedTypeName name="org.hyperledger.fabric.gateway.Gateway"/>
+    <fullyQualifiedTypeName name="org.hyperledger.fabric.sdk.Enrollment"/>
+    <fullyQualifiedTypeName name="io.grpc.InternalChannelz.Security"/>
+    <fullyQualifiedTypeName name="java.nio.file.Path"/>
+    <fullyQualifiedTypeName name="java.nio.file.Paths"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,75 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" >
+</head>
+<body>
+
+<div>
+	<img src="globalvoximg-removebg.png"  class="img">
+</div>
+
+<form action="ClientApp">      
+  <input name="name" type="text" class="feedback-input" placeholder="Name" required="required"/>   
+  
+  <input name="key" type="text" class="feedback-input" placeholder="Key" required="required" min="0"/>
+  
+  <input name="id" type="text" class="feedback-input" placeholder="Phone" required="required"/>
+  
+  <input name="age" type="number" class="feedback-input" placeholder="Age" min="0" required="required">
+  
+  <div class="gender" name="gender" required="required">
+  <div>
+  <input type="radio" name="gender" value="male"> Male</div>
+  <div>
+<input type="radio" name="gender" value="female" class="female"> Female</div>
+</div>
+
+
+  <select class="feedback-input" name="vaccinename" required="required">
+
+    <option disabled selected>Select your vaccine</option>
+    <option>Pfizer</option>
+    <option>Moderna</option>
+    <option>Covaxin</option>
+    <option>Covishield</option>
+    <option>Sputnik</option>
+    <option>Zycov</option>
+  </select>
+  
+
+  <select class="feedback-input" name="dose" required="required">
+
+    <option disabled selected>Select your dose</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  </select>
+
+ 
+  
+  
+  <input name="date-of-vaccination" type="date" class="feedback-input" placeholder="Date of Vaccination" required="required">
+  
+
+  <input type="submit" value="SUBMIT"/>
+ 
+  
+</form>
+<div class="link-div">
+ <a href="update.html">
+    <button >UPDATE</button>
+</a>
+
+<a href="display.html">
+        <button class="mg-l">DISPLAY</button>
+</a>
+
+</div>
+
+
+</body>
+</html>
+

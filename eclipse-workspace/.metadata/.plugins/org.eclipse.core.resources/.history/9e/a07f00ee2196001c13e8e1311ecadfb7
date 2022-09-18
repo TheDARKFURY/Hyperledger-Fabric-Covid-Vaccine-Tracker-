@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" >
+<meta charset="UTF-8">
+<title>Display</title>
+</head>
+<body>
+
+<div>
+	<img src="globalvoximg-removebg.png" class="img">
+</div>
+
+<form action="ClientAppDisplay">
+
+	<input name="key" type="text" class="feedback-input" placeholder="Key" required="required"/>
+	
+	<input type="submit" value="DISPLAY"/>
+
+</form>
+
+<script type="text/javascript">
+fetchData = (key)=>{
+	fetch('http://localhost:8888/FebDemoNew/ClientAppDisplay?key=' + key)
+	.then(data => data.json())
+	.then(data => {console.log(data)});
+};
+fetchData(1001);
+</script>
+
+
+</body>
+</html>

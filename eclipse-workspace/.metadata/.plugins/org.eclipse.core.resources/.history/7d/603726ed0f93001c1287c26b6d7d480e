@@ -1,0 +1,160 @@
+package CovidVT;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.hyperledger.fabric.contract.Context;
+import org.hyperledger.fabric.contract.ContractInterface;
+import org.hyperledger.fabric.contract.annotation.Contact;
+import org.hyperledger.fabric.contract.annotation.Contract;
+import org.hyperledger.fabric.contract.annotation.Default;
+import org.hyperledger.fabric.contract.annotation.Info;
+import org.hyperledger.fabric.contract.annotation.License;
+import org.hyperledger.fabric.contract.annotation.Transaction;
+import org.hyperledger.fabric.shim.ChaincodeException;
+import org.hyperledger.fabric.shim.ChaincodeStub;
+import org.hyperledger.fabric.shim.ledger.KeyValue;
+import org.hyperledger.fabric.shim.ledger.QueryResultsIterator;
+import com.owlike.genson.Genson;
+
+
+@Contract(
+        name = "FabPerson",
+        info = @Info(
+                title = "FabPerson contract",
+                description = "The hyperlegendary covid vaccine contract",
+                version = "0.0.1-SNAPSHOT",
+                license = @License(
+                        name = "Apache 2.0 License",
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.html"),
+                contact = @Contact(
+                        email = "f.carr@example.com",
+                        name = "Covid Vaccine",
+                        url = "https://hyperledger.example.com")))
+@Default
+public final class FabPerson implements ContractInterface {
+
+    private final Genson genson = new Genson();
+
+    private enum FabPersonErrors {
+        PERSON_NOT_FOUND,
+        PERSON_ALREADY_EXISTS
+    }
+
+    
+    @Transaction()
+    public Person queryPerson(final Context ctx, final String key) {
+        ChaincodeStub stub = ctx.getStub();
+        String personState = stub.getStringState(key);
+
+        if (personState.isEmpty()) {
+            String errorMessage = String.format("Person %s does not exist", key);
+            System.out.println(errorMessage);
+            throw new ChaincodeException(errorMessage, FabPersonErrors.PERSON_NOT_FOUND.toString());
+        }
+
+        Person person = genson.deserialize(personState, Person.class);
+
+        return person;
+    }
+
+  
+    @Transaction()
+    public void initLedger(final Context ctx) {
+        ChaincodeStub stub = ctx.getStub();
+
+        String[] personData = {
+                "{ \"name\": \"Mohit\", \"age\": \"21\", \"gender\": \"male\", \"identity\": \"123456456325\", \"vaccinename\": \"Covaxin\", \"date1\": \"30-08-2000\",\"vaccinedose\": \"2\"  }",
+        
+                "{ \"name\": \"Soham\", \"age\": \"20\", \"gender\": \"male\", \"identity\": \"645632525842\", \"vaccinename\": \"Covaxin\", \"date1\": \"23-02-2001\",\"vaccinedose\": \"3\"  }",
+                
+                "{ \"name\": \"Shivi\", \"age\": \"21\", \"gender\": \"female\", \"identity\": \"341255636425\", \"vaccinename\": \"Covishield\", \"date1\": \"01-01-2000\",\"vaccinedose\": \"2\"  }",
+                
+                "{ \"name\": \"Keval\", \"age\": \"21\", \"gender\": \"male\", \"identity\": \"156423456325\", \"vaccinename\": \"Moderna\", \"date1\": \"03-08-2000\",\"vaccinedose\": \"4\"  }",
+                
+                "{ \"name\": \"PratikSir\", \"age\": \"35\", \"gender\": \"male\", \"identity\": \"561234456325\", \"vaccinename\": \"Sputnik\", \"date1\": \"23-08-1985\",\"vaccinedose\": \"3\"  }",
+                
+                "{ \"name\": \"MayankSir\", \"age\": \"28\", \"gender\": \"male\", \"identity\": \"564512346325\", \"vaccinename\": \"Covaxin\", \"date1\": \"13-09-1994\",\"vaccinedose\": \"2\"  }"
+                
+                
+                
+        };
+
+        for (int i = 0; i < personData.length; i++) {
+            String key = String.format("PERSON%d", i);
+
+            Person person = genson.deserialize(personData[i], Person.class);
+            String personState = genson.serialize(person);
+            stub.putStringState(key, personState);
+        }
+    }
+
+   
+    @Transaction()
+    public Person addPerson(final Context ctx, final String key, final String name, final String age , 
+    		final String gender ,final String identity , 
+    		final String vaccinename,final String date1, final String vaccinedose) {
+        ChaincodeStub stub = ctx.getStub();
+
+        String personState = stub.getStringState(key);
+        if (!personState.isEmpty()) {
+            String errorMessage = String.format("Person %s already exists", key);
+            System.out.println(errorMessage);
+            throw new ChaincodeException(errorMessage, FabPersonErrors.PERSON_ALREADY_EXISTS.toString());
+        }
+
+        Person person = new Person(name,age,gender,identity,vaccinename,date1,"1");
+        personState = genson.serialize(person);
+        stub.putStringState(key, personState);
+
+        return person;
+    }
+
+   
+    @Transaction()
+    public String queryAllPerson(final Context ctx) {
+        ChaincodeStub stub = ctx.getStub();
+
+        final String startKey = "PERSON1";
+        final String endKey = "PERSON99";
+        List<PersonQueryResult> queryResults = new ArrayList<PersonQueryResult>();
+
+        QueryResultsIterator<KeyValue> results = stub.getStateByRange(startKey, endKey);
+
+        for (KeyValue result: results) {
+            Person person = genson.deserialize(result.getStringValue(), Person.class);
+            queryResults.add(new PersonQueryResult(result.getKey(), person));
+        }
+
+        final String response = genson.serialize(queryResults);
+
+        return response;
+    }
+
+   
+	
+	  @Transaction() 
+	  public Person changePersonDose(final Context ctx, final
+	  String key, final String newDose) { ChaincodeStub stub = ctx.getStub();
+	  
+	  String personState = stub.getStringState(key);
+	  
+	  if (personState.isEmpty()) 
+	  { 
+		  String errorMessage = String.format("Person %s does not exist", key);
+	  System.out.println(errorMessage); throw new ChaincodeException(errorMessage, FabPersonErrors.PERSON_NOT_FOUND.toString()); 
+	  }
+	  
+	  Person person = genson.deserialize(personState, Person.class);
+	  
+	  Person newPerson = new Person(person.getName(), person.getAge(),person.getGender(),person.getIdentity()
+			  				,person.getVaccineName(),person.getDate1(),newDose);
+	  
+	  String newPersonState = genson.serialize(newPerson); 
+	  stub.putStringState(key, newPersonState);
+	  
+	  return person; }
+	 
+}
+
+
+

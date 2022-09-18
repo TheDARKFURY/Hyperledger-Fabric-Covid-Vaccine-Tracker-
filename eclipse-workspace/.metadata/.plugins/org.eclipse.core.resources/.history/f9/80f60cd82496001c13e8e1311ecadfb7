@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css" >
+<meta charset="UTF-8">
+<title>Display</title>
+<style>
+.result tr, .result td, .result th {color: #FFFFFF}
+</style>
+</head>
+<body>
+
+<div>
+	<img src="globalvoximg-removebg.png" class="img">
+</div>
+
+<form action="ClientAppDisplay">
+
+	<input name="key" type="text" class="feedback-input" id="keyInput" placeholder="Key" required="required"/>
+	
+	<input type="button" onClick="fetchData(document.getElementById('keyInput').value)" value="DISPLAY"/>
+
+</form>
+<div class="result">
+	<table border="1" cellPadding="5" cellSpacing="0">
+		<tr>
+			<th>Name</th>
+			<td id="dataName">No Data</td>
+		</tr>
+		<tr>
+			<th>Age</th>
+			<td id="dataAge">No Data</td>
+		</tr>
+		<tr>
+			<th>Gender</th>
+			<td id="dataGender">No Data</td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td id="dataPhone">No Data</td>
+		</tr>
+		<tr>
+			<th>Vaccine Name</th>
+			<td id="dataVaccineName">No Data</td>
+		</tr>
+		<tr>
+			<th>Vaccine Dose</th>
+			<td id="dataVaccineDose">No Data</td>
+		</tr>
+		<tr>
+			<th>Date</th>
+			<td id="dataDate">No Data</td>
+		</tr>
+	</table>
+</div>
+
+<script type="text/javascript">
+fetchData = (key)=>{
+	fetch('http://localhost:8888/FebDemoNew/ClientAppDisplay?key=' + key)
+	.then(data => data.json())
+	.then(data => {
+		console.log(data);
+		document.getElementById('dataName').innerHTML = data.name;
+		document.getElementById('dataAge').innerHTML = data.age;
+		document.getElementById('dataGender').innerHTML = data.gender;
+		document.getElementById('dataPhone').innerHTML = data.identity;
+		document.getElementById('dataVaccineName').innerHTML = data.vaccineName;
+		document.getElementById('dataVaccineDose').innerHTML = data.vaccineDose;
+		document.getElementById('dataDate').innerHTML = data.date1;
+		
+	});
+};
+//fetchData(5001);
+</script>
+
+
+</body>
+</html>

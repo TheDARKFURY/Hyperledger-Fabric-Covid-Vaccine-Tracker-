@@ -1,0 +1,7 @@
+INDEX VERSION 1.131
+/home/mohit/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/872324877.index
+/webfabricjavaclient/src/main/resources
+/home/mohit/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2562970810.index
+/fabricwebjavaclient/src/main/java
+/home/mohit/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1468196157.index
+/fabricwebjavaclient/src/main/resources
